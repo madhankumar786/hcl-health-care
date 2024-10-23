@@ -1,4 +1,3 @@
-// AppointmentForm.js
 import React, { useState } from 'react';
 import { Button, Typography, Box } from '@mui/material';
 import DoctorSelect from './DoctorSelect';
@@ -22,10 +21,8 @@ const AppointmentForm = () => {
         setTimeSlot(slot);
     };
 
-    // Check if the time slot buttons should be enabled
     const areTimeSlotsEnabled = doctor && date;
 
-    // Check if the confirm booking button should be enabled
     const isButtonDisabled = !timeSlot;
 
     return (
@@ -54,7 +51,7 @@ const AppointmentForm = () => {
                         color="primary"
                         fullWidth
                         onClick={handleSubmit}
-                        disabled={isButtonDisabled}  // Disable if no time slot selected
+                        disabled={isButtonDisabled}
                     >
                         Confirm Booking
                     </Button>
