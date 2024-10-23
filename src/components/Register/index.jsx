@@ -8,7 +8,7 @@ import {
   Link as LinkTag,
   Paper,
 } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { register } from "../../redux/features/authSlice";
@@ -19,7 +19,7 @@ const RegisterPage = () => {
     password: "",
   });
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [errors, setErrors] = useState({});
   const validateForm = () => {
     const newErrors = {};
@@ -55,6 +55,7 @@ const RegisterPage = () => {
       //alert("registered");
       console.log("Form submitted successfully:", formData);
       dispatch(register({ formData, toast }));
+      navigate("/");
     } else {
       console.log("Form validation failed.");
     }
@@ -180,21 +181,7 @@ const RegisterPage = () => {
 
             <Box sx={{ textAlign: "center" }}>
               <LinkTag
-                href="#"
-                variant="body2"
-                sx={{
-                  display: "block",
-                  mb: 1,
-                  color: "#0284c7",
-                  "&:hover": {
-                    color: "#0369a1",
-                  },
-                }}
-              >
-                Forgot Password?
-              </LinkTag>
-              <LinkTag
-                href="#"
+                href="/login"
                 variant="body2"
                 sx={{
                   color: "#0284c7",

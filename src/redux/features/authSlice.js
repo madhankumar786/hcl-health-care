@@ -20,7 +20,7 @@ export const register = createAsyncThunk(
         console.log(formData);
         try {
             const response = await api.signUp(formData);
-            toast.success("Register Successfully");
+            toast.success("Login Successfully");
             //navigate("/");
             return response.data;
         } catch (err) {

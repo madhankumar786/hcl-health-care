@@ -8,15 +8,25 @@ import {
   Link,
   Paper,
 } from "@mui/material";
-
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { login } from "../../redux/features/authSlice";
+import { useDispatch, useSelector } from "react-redux";
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle login logic here
+    const formData = {
+      email: email,
+      password: password,
+    };
+    dispatch(login({ formData, toast }));
     console.log({ email, password });
+    navigate("/");
+    // Handle login logic here
   };
 
   return (
@@ -116,21 +126,7 @@ const LoginPage = () => {
 
             <Box sx={{ textAlign: "center" }}>
               <Link
-                href="#"
-                variant="body2"
-                sx={{
-                  display: "block",
-                  mb: 1,
-                  color: "#0284c7",
-                  "&:hover": {
-                    color: "#0369a1",
-                  },
-                }}
-              >
-                Forgot Password?
-              </Link>
-              <Link
-                href="#"
+                href="/register"
                 variant="body2"
                 sx={{
                   color: "#0284c7",
