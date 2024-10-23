@@ -41,6 +41,7 @@
   .dashboard-container {
     display: flex;
     font-family: Arial, sans-serif;
+    height: 100vh;
   }
   
   .sidebar {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Typography, Button, Card, CardContent, useMediaQuery, useTheme } from '@mui/material';
 
-const HealthCard = ({ title, description,id }) => {
+const HealthCard = ({ title, description, id }) => {
   const [expanded, setExpanded] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -12,26 +12,28 @@ const HealthCard = ({ title, description,id }) => {
 
   return (
     <Card
-        key={id}
+      key={id}
       sx={{
-        maxWidth: isMobile ? '100%' : 400,
+        maxWidth: isMobile ? '100%' : 300,
         margin: 'auto',
         borderRadius: 2,
         boxShadow: 3,
         overflow: 'hidden',
-        m:1
+        m: 1,
+        flex: 1,
+        flexBasis: '250px'
       }}
     >
       <CardContent>
-       
+
         <Typography variant="h5" component="div" sx={{ fontWeight: 'bold', mb: 2 }}>
           {title}
         </Typography>
 
-       
+
         <Box
           sx={{
-            maxHeight: expanded ? 'none' : 80, 
+            maxHeight: expanded ? 'none' : 80,
             overflow: expanded ? 'visible' : 'hidden',
             textOverflow: 'ellipsis',
             position: 'relative',
@@ -42,7 +44,7 @@ const HealthCard = ({ title, description,id }) => {
             component="p"
             sx={{
               display: '-webkit-box',
-              WebkitLineClamp: expanded ? 'none' : 3,  
+              WebkitLineClamp: expanded ? 'none' : 3,
               WebkitBoxOrient: 'vertical',
               overflow: 'hidden',
             }}
