@@ -5,17 +5,21 @@ import {
   Typography,
   TextField,
   Button,
-  Link,
+  Link as LinkTag,
   Paper,
 } from "@mui/material";
-
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { register } from "../../redux/features/authSlice";
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
   });
-
+  const dispatch = useDispatch();
+  // const navigate = useNavigate();
   const [errors, setErrors] = useState({});
   const validateForm = () => {
     const newErrors = {};
@@ -48,8 +52,9 @@ const RegisterPage = () => {
     e.preventDefault();
     if (validateForm()) {
       // Submit the form (you can send it to your backend here)
-      alert("registered");
+      //alert("registered");
       console.log("Form submitted successfully:", formData);
+      dispatch(register({ formData, toast }));
     } else {
       console.log("Form validation failed.");
     }
@@ -174,7 +179,7 @@ const RegisterPage = () => {
             </Button>
 
             <Box sx={{ textAlign: "center" }}>
-              <Link
+              <LinkTag
                 href="#"
                 variant="body2"
                 sx={{
@@ -187,8 +192,8 @@ const RegisterPage = () => {
                 }}
               >
                 Forgot Password?
-              </Link>
-              <Link
+              </LinkTag>
+              <LinkTag
                 href="#"
                 variant="body2"
                 sx={{
@@ -199,7 +204,7 @@ const RegisterPage = () => {
                 }}
               >
                 Existing User? Login here
-              </Link>
+              </LinkTag>
             </Box>
           </Box>
         </Paper>

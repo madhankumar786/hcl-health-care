@@ -82,4 +82,22 @@ const editUserProfile = async (req, res) => {
     }
 };
 
-module.exports = { registerUser, loginUser, logoutUser, editUserProfile };
+const myProfile = async (req, res) => {
+    try {
+        const user = await UserModal.findById(req.user._id);
+
+        res.status(200).json({
+            result: user,
+            token: req.headers.authorization.split(" ")[1],
+        });
+
+    }
+    catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error.message
+        })
+    }
+};
+
+module.exports = { registerUser, loginUser, logoutUser, editUserProfile, myProfile };
