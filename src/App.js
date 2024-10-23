@@ -1,5 +1,4 @@
 import './App.css';
-import Dashboard from './components/Dashboard/Dashboard';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Menu from './components/Menu/Menu';
 import Home from './components/Home/Home';
