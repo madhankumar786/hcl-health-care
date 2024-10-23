@@ -19,7 +19,9 @@ const HealthCard = ({ title, description,id }) => {
         borderRadius: 2,
         boxShadow: 3,
         overflow: 'hidden',
-        m:1
+        m:1,
+        flex:1,
+        flexBasis:'300px'
       }}
     >
       <CardContent>

@@ -4,7 +4,7 @@ import { Box, Typography } from '@mui/material';
 
 const featuredTopic = [
     {
-        id:1,
+        id: 1,
         title: 'Health Tips',
         description: `This is a health card description that contains more than three lines of text.
                     It will be truncated by default and shown in full when the "Read More" button
@@ -12,7 +12,7 @@ const featuredTopic = [
                     This is where we talk about fitness, diet, mental health, and much more.`
     },
     {
-        id:2,
+        id: 2,
         title: 'Health Checkups',
         description: `This is a health card description that contains more than three lines of text.
                     It will be truncated by default and shown in full when the "Read More" button
@@ -20,7 +20,7 @@ const featuredTopic = [
                     This is where we talk about fitness, diet, mental health, and much more.`
     },
     {
-        id:3,
+        id: 3,
         title: 'Organ Checkups',
         description: `This is a health card description that contains more than three lines of text.
                     It will be truncated by default and shown in full when the "Read More" button
@@ -28,7 +28,7 @@ const featuredTopic = [
                     This is where we talk about fitness, diet, mental health, and much more.`
     },
     {
-        id:4,
+        id: 4,
         title: 'Blood Tests',
         description: `This is a health card description that contains more than three lines of text.
                     It will be truncated by default and shown in full when the "Read More" button
@@ -36,7 +36,7 @@ const featuredTopic = [
                     This is where we talk about fitness, diet, mental health, and much more.`
     },
     {
-        id:5,
+        id: 5,
         title: 'General checkups',
         description: `This is a health card description that contains more than three lines of text.
                     It will be truncated by default and shown in full when the "Read More" button
@@ -44,7 +44,7 @@ const featuredTopic = [
                     This is where we talk about fitness, diet, mental health, and much more.`
     },
     {
-        id:6,
+        id: 6,
         title: '',
         description: `This is a health card description that contains more than three lines of text.
                     It will be truncated by default and shown in full when the "Read More" button
@@ -67,16 +67,16 @@ const FeaturedTopics = () => {
             >
                 Latest Health Information
             </Typography>
-            <Box sx={{display:'flex',flexBasis:'row',flexWrap:'wrap'}}>
-            {featuredTopic?.map(item => {
-                return (
-                    <HealthCard
-                        title={item?.title}
-                        description={item?.description}
-                        key={item.id}
-                    />
-                )
-            })}
+            <Box sx={{ display: 'flex', flexBasis: 'row', flexWrap: 'wrap' ,p:2}}>
+                {featuredTopic?.map(item => {
+                    return (
+                        <HealthCard
+                            title={item?.title}
+                            description={item?.description}
+                            key={item.id}
+                        />
+                    )
+                })}
             </Box>
         </Box>
     );
