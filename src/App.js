@@ -7,6 +7,7 @@ import Contact from './components/Contact/Contact';
 import HealthInformation from './components/UpdateCard/index';
 import LoginPage from './components/Login';
 import RegisterPage from './components/Register';
+import AppointmentForm from './components/AppointmentForm';
 function App() {
   return (
     <div className="appWrapper">
@@ -19,6 +20,7 @@ function App() {
           <Route path="health-information" element={<HealthInformation />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
+          <Route path="book-appointment" element={<AppointmentForm />} />
         </Routes>
       </Router>
     </div>

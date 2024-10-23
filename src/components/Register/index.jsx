@@ -17,6 +17,7 @@ const RegisterPage = () => {
     name: "",
     email: "",
     password: "",
+    isDoctor: false,
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -113,7 +114,6 @@ const RegisterPage = () => {
               <path d="M12 4v16m8-8H4" />
             </svg>
           </Box>
-
           <Typography component="h1" variant="h5" sx={{ mb: 3 }}>
             Register
           </Typography>
@@ -162,6 +162,32 @@ const RegisterPage = () => {
             {errors.password && (
               <p style={{ color: "red" }}>{errors.password}</p>
             )}
+            <div style={{ display: "flex", gap: "5px" }}>
+              <label>Role:</label>
+              <div>
+                <input
+                  type="radio"
+                  id="patient"
+                  name="role"
+                  value="patient"
+                  checked={formData.isDoctor === false}
+                  onChange={handleChange}
+                />
+                <label htmlFor="patient">Patient</label>
+              </div>
+
+              <div>
+                <input
+                  type="radio"
+                  id="doctor"
+                  name="role"
+                  value="doctor"
+                  checked={formData.isDoctor === true}
+                  onChange={handleChange}
+                />
+                <label htmlFor="doctor">Doctor</label>
+              </div>
+            </div>
             <Button
               type="submit"
               fullWidth
