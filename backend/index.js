@@ -12,7 +12,7 @@ app.use(cors());
 
 // Option 2: Restrict to a specific origin
 app.use(cors({
-    origin: 'http://localhost:3001', // Your frontend URL
+    origin: '*', // Your frontend URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
     credentials: true, // Allow credentials (cookies, etc.)
 }));

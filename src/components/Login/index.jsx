@@ -25,6 +25,7 @@ const LoginPage = () => {
     };
     dispatch(login({ formData, toast }));
     console.log({ email, password });
+    alert("Logged in");
     navigate("/");
     // Handle login logic here
   };

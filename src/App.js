@@ -8,6 +8,12 @@ import HealthInformation from './components/UpdateCard/index';
 import LoginPage from './components/Login';
 import RegisterPage from './components/Register';
 import AppointmentForm from './components/AppointmentForm';
+import DoctorMenu from './components/Doctor/DoctorMenu';
+import PatientList from './components/Doctor/PatientList';
+import Appointments from './components/Doctor/Appointments';
+import Messages from './components/Doctor/Messages';
+import Logout from './components/Doctor/Logout';
+import Dashboard from './components/Doctor/Dashboard';
 function App() {
   return (
     <div className="appWrapper">
@@ -21,6 +27,13 @@ function App() {
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
           <Route path="book-appointment" element={<AppointmentForm />} />
+          <Route path="doctor-dashboard" element={<DoctorMenu />}>
+            <Route index element={<Dashboard />} />
+            <Route path="patients" element={<PatientList />} />
+            <Route path="appointments" element={<Appointments />} />
+            <Route path="messages" element={<Messages />} />
+            <Route path="logout" element={<Logout />} />
+          </Route>
         </Routes>
       </Router>
     </div>

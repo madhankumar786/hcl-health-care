@@ -10,6 +10,7 @@ const Menu = () => {
 
   const handleLogout = () => {
     dispatch(setLogout());
+    navigate("/login")
   }
   return (
     <>
@@ -22,9 +23,11 @@ const Menu = () => {
           <Button color="inherit" onClick={() => navigate('/about')}>About</Button>
           <Button color="inherit" onClick={() => navigate('/contact')}>Contact</Button>
           <Button color="inherit" onClick={() => navigate('/health-information')}>Health Information</Button>
+          <Button color="inherit" onClick={() => navigate('/doctor-dashboard')}>Dashboard</Button>
           {user && <Button color="inherit" onClick={() => navigate('/book-appointment')}>Book Appointment</Button>}
           {!user && <Button color="inherit" onClick={() => navigate('/login')}>Signin/Signup</Button>}
           {user && <Button color="inherit" onClick={handleLogout}>Logout</Button>}
+
           {user && user.name}
         </Toolbar>
       </AppBar>

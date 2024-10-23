@@ -56,6 +56,7 @@ const RegisterPage = () => {
       //alert("registered");
       console.log("Form submitted successfully:", formData);
       dispatch(register({ formData, toast }));
+      alert("registered");
       navigate("/");
     } else {
       console.log("Form validation failed.");
