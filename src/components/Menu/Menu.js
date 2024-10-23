@@ -12,10 +12,10 @@ const Menu = () => {
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             Bayer Healthcare
           </Typography>
-          <Button color="inherit" onClick={() => navigate('/')}>Home</Button>
-          <Button color="inherit" onClick={() => navigate('/about')}>About</Button>
-          <Button color="inherit" onClick={() => navigate('/contact')}>Contact</Button>
-          <Button color="inherit" onClick={() => navigate('/health-information')}>Health Information</Button>
+          <Button color="inherit" onClick={() => navigate('/')} sx={{textTransform:'capitalize'}}>Home</Button>
+          <Button color="inherit" onClick={() => navigate('/about')} sx={{textTransform:'capitalize'}}>About</Button>
+          <Button color="inherit" onClick={() => navigate('/contact')} sx={{textTransform:'capitalize'}}>Contact</Button>
+          <Button color="inherit" onClick={() => navigate('/health-information')} sx={{textTransform:'capitalize'}}>Health Information</Button>
         </Toolbar>
       </AppBar>
       
