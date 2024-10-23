@@ -1,11 +1,10 @@
 import React from 'react';
-import HealthInformation from '../UpdateCard';
 import Banner from '../Banner/Banner';
 const Home = () => {
-    return(
+    return (
         <>
-            <Banner/>
-            <HealthInformation/>
+            <Banner />
+
         </>
     );
 }
