@@ -1,0 +1,44 @@
+# Node.js dependencies
+/node_modules
+
+# Environment variables
+.env
+/config
+/config/config.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Build output
+dist
+build
+
+# Temporary files
+tmp
+temp
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# IDE/editor specific files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Coverage reports
+coverage/
+
+# Database files (if using local SQLite or similar)
+*.sqlite
+*.db
+
+# Cache files
+.cache/
+
+# Other
+*.tgz
+*.zip
