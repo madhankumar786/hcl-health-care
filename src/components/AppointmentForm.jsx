@@ -12,20 +12,41 @@ const AppointmentForm = () => {
     const [timeSlot, setTimeSlot] = useState('');
     const [reason, setReason] = useState('');
     const [notes, setNotes] = useState('');
+    const [loading, setLoading] = useState(false);
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         const appointmentDetails = { doctor, date, timeSlot, reason, notes };
         console.log("Booking Details:", appointmentDetails);
+
+        try {
+            setLoading(true);
+            const response = await fetch('http://localhost:5000/api/appointments/createappointment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(appointmentDetails),
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const result = await response.json();
+            console.log('Appointment successfully created:', result);
+
+        } catch (error) {
+            console.error('Error creating appointment:', error);
+        } finally {
+            setLoading(false);
+        }
     };
 
     const handleTimeSlotClick = (slot) => {
         setTimeSlot(slot);
     };
 
-    // Check if the time slot buttons should be enabled
     const areTimeSlotsEnabled = doctor && date;
-
-    // Check if the confirm booking button should be enabled
     const isButtonDisabled = !timeSlot;
 
     return (
@@ -45,7 +66,7 @@ const AppointmentForm = () => {
                     <TimeSlotButtons
                         timeSlot={timeSlot}
                         handleTimeSlotClick={handleTimeSlotClick}
-                        areTimeSlotsEnabled={areTimeSlotsEnabled} // Pass the prop to control button enablement
+                        areTimeSlotsEnabled={areTimeSlotsEnabled}
                     />
                     <TextInput label="Reason for Visit" value={reason} onChange={(e) => setReason(e.target.value)} multiline />
                     <TextInput label="Additional Notes" value={notes} onChange={(e) => setNotes(e.target.value)} multiline />
@@ -54,9 +75,9 @@ const AppointmentForm = () => {
                         color="primary"
                         fullWidth
                         onClick={handleSubmit}
-                        disabled={isButtonDisabled}  // Disable if no time slot selected
+                        disabled={isButtonDisabled || loading}
                     >
-                        Confirm Booking
+                        {loading ? 'Booking...' : 'Confirm Booking'}
                     </Button>
                 </Box>
             </Box>
